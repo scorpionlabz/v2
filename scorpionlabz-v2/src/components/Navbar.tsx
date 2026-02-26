@@ -89,8 +89,8 @@ export default function Navbar() {
         />
         
         {/* Mobile burger menu button */}
-        <button 
-          className="md:hidden flex flex-col gap-1.5 z-50"
+        <button
+          className="md:hidden relative z-[60] flex flex-col gap-1.5"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <div className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -99,24 +99,21 @@ export default function Navbar() {
         </button>
 
         {/* Mobile menu */}
-        <div className={`md:hidden fixed inset-0 bg-black/90 h-screen backdrop-blur-md transition-all ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        <div className={`md:hidden fixed inset-0 z-[55] bg-black/90 h-screen backdrop-blur-md transition-all ${isMenuOpen ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible pointer-events-none'}`}>
           <div className="flex flex-col items-center justify-center h-full gap-8">
-            <p className="text-white text-2xl font-light">Direction</p>
-            <p className="text-white text-2xl font-light">About</p>
-            <p className="text-white text-2xl font-light">Work</p>
-            <p className="text-white text-2xl font-light">Services</p>
-            <p className="text-white text-2xl font-light">Contact</p>
+            <p onClick={() => { handleScroll('direction'); setIsMenuOpen(false); }} className="text-white text-2xl font-light cursor-pointer hover:text-white/60 transition-colors">Direction</p>
+            <p onClick={() => { handleScroll('clients'); setIsMenuOpen(false); }} className="text-white text-2xl font-light cursor-pointer hover:text-white/60 transition-colors">Clients</p>
+            <p onClick={() => { handleScroll('services'); setIsMenuOpen(false); }} className="text-white text-2xl font-light cursor-pointer hover:text-white/60 transition-colors">Services</p>
+            <p onClick={() => { handleScroll('contact'); setIsMenuOpen(false); }} className="text-white text-2xl font-light cursor-pointer hover:text-white/60 transition-colors">Contact</p>
           </div>
         </div>
 
         {/* Desktop menu */}
         <div className="hidden md:flex flex-row gap-8 justify-start align-top transition-all duration-300 ease-in-out border-white rounded-xl">
           <p onClick={() => handleScroll('direction')} className="text-white/60 hover:text-white transition-colors text-lg font-light hover:cursor-pointer">Direction</p>
-          <p onClick={() => handleScroll('clients')} className="text-white/60 hover:text-white transition-colors text-lg font-light hover:cursor-pointer">Clients</p>
-          {/* <p className="text-white text-lg font-light">About</p> */}
-          {/* <p className="text-white text-lg font-light">Work</p> */}
           <p onClick={() => handleScroll('services')} className="text-white/60 hover:text-white transition-colors text-lg font-light hover:cursor-pointer">Services</p>
-          {/* <p className="text-white text-lg font-light">Contact</p> */}
+          <p onClick={() => handleScroll('clients')} className="text-white/60 hover:text-white transition-colors text-lg font-light hover:cursor-pointer">Clients</p>
+          <p onClick={() => handleScroll('contact')} className="text-white/60 hover:text-white transition-colors text-lg font-light hover:cursor-pointer">Contact</p>
         </div>
       </div>
     </div>

@@ -11,8 +11,8 @@ const clients = [
 
 export default function Clients() {
   return(
-    <div id="clients" className="w-full flex flex-col h-[50vh] justify-start gap-16 items-center p-8 2xl:p-16 bg-black relative">
-      <h1 className="text-white text-4xl 2xl:text-7xl font-regular text-center">
+    <div id="clients" className="w-full flex flex-col h-auto min-h-[40vh] lg:h-[50vh] justify-start gap-8 sm:gap-16 items-center p-6 sm:p-8 2xl:p-16 bg-black relative pb-12">
+      <h1 className="text-white text-3xl sm:text-4xl 2xl:text-7xl font-regular text-center">
         Trusted By
       </h1>
       <div className="w-full max-w-7xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 place-items-center">

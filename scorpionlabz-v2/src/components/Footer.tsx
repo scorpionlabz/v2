@@ -6,6 +6,7 @@ import { Separator } from '@/components/ui/separator'
 import instagramWhite from '@/../public/assets/vectors/instagramWhite.svg'
 import linkedinWhite from '@/../public/assets/vectors/linkedinWhite.svg';
 import whiteScorp from '@/../public/assets/image/whiteScorp_full.png'
+import footerBg from '@/../public/assets/image/direction_bg.png'
 
 export const handleScroll = (link: string) => {
 
@@ -22,9 +23,9 @@ const Footer = () => {
 
     return (
         <div 
-            className="h-[90vh] lg:h-[70vh] w-full flex flex-col justify-between relative bg-black p-8 lg:p-16"
+            className="h-auto min-h-[60vh] lg:h-[70vh] w-full flex flex-col justify-between relative bg-black p-6 sm:p-8 lg:p-16"
             style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url(${whiteScorp.src})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 1)), url(${footerBg.src})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'left',
             }}
@@ -34,10 +35,11 @@ const Footer = () => {
                     <Separator orientation={'horizontal'} />
                     <a onClick={() => handleScroll('home')} className='text-white/80 hover:text-white transition-colors text-lg cursor-pointer'>Home</a>
                     <a onClick={() => handleScroll('direction')} className='text-white/80 hover:text-white transition-colors text-lg cursor-pointer'>Direction</a>
-                    <a onClick={() => handleScroll('clients')} className='text-white/80 hover:text-white transition-colors text-lg cursor-pointer'>Clients</a>
                     <a onClick={() => handleScroll('services')} className='text-white/80 hover:text-white transition-colors text-lg cursor-pointer'>Services</a>
+                    <a onClick={() => handleScroll('clients')} className='text-white/80 hover:text-white transition-colors text-lg cursor-pointer'>Clients</a>
+                    <a onClick={() => handleScroll('contact')} className='text-white/80 hover:text-white transition-colors text-lg cursor-pointer'>Contact</a>
                 </div>
-                <div className='w-full flex flex-row justify-between'>
+                <div className='w-full flex flex-row justify-between absolute bottom-6 left-0 px-6 sm:static sm:px-0'>
                     <div className='flex flex-row justify-start gap-4 '>
                         <a href="https://www.instagram.com/scorpionlabz/profilecard/?igsh=MW5saDRyc2kyY2Q2cw==" target="_blank" rel="noopener noreferrer">
                             <Image priority src={instagramWhite} alt='github logo' className='h-5 w-5 cursor-pointer opacity-60 hover:opacity-100 transition-opacity'/>
